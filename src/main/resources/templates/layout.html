@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment = "header">
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    
+
+</head>
+
+<body>
+
+
+
+<nav th:fragment = "navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">ProjectIO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href ="@{/home}"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/project1}"> Project </a>
+        
+         
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{/Employee}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employee
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"> Action </a>
+          <a class="dropdown-item" href="#"> Another Action </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"> Something else here </a>
+        </div>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+
+	<div class="container">
+		<form action="/home/save2" th.object = "${Project}" method="POST">
+		<tr th:each = "aProject : ${Project}">
+		 <td th:text = "${aProject.name}" >
+		 <td th:text = "${aProject.stage}" >
+		
+		
+		   <th>First Name</th>
+		   <th>Last Name</th>
+		
+		</tr>
+		
+		<button type="submit">Create Project</button>
+		</form>
+	</div>
+</body>
+	
